@@ -1,0 +1,34 @@
+{
+    "daniel": {
+        "password": "danielo009AZ",
+        "role": "Administrador"
+    },
+    "cscs": {
+        "password": "dawd",
+        "role": "Usuario"
+    },
+    "dsS": {
+        "password": "DSDSD",
+        "role": "Usuario"
+    },
+    "kjk": {
+        "password": "dddddd",
+        "role": "Usuario"
+    },
+    "ddd": {
+        "password": "1d21d3",
+        "role": "Usuario"
+    },
+    "Daniel Lopez": {
+        "password": "danielo009az",
+        "role": "Usuario"
+    },
+    "Daniel": {
+        "password": "danielo009AZ",
+        "role": "Usuario"
+    },
+    "ad": {
+        "password": "dadddd",
+        "role": "Usuario"
+    }
+}

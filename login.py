@@ -33,8 +33,8 @@ class LoginWindow(ctk.CTk):
         self.center_window()
 
         # Fuentes (estilo "gordas y cuadradas" usando Consolas/monospace)
-        self.font_title = ctk.CTkFont(family="Consolas", size=56, weight="bold")
-        self.font_logo = ctk.CTkFont(family="Consolas", size=28, weight="bold")
+        self.font_title = ctk.CTkFont(family="Consolas", size=45, weight="bold")
+        self.font_logo = ctk.CTkFont(family="Consolas", size=22, weight="bold")
         self.font_label = ctk.CTkFont(family="Consolas", size=14, weight="bold")
         self.font_input = ctk.CTkFont(family="Consolas", size=16)
 

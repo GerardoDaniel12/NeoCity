@@ -3,6 +3,7 @@ import sys
 import subprocess
 import tkinter.messagebox as messagebox
 import customtkinter as ctk
+from lerning_module import LearningModule
 
 ROLES_INFO = {
     "Alcalde": {
@@ -24,14 +25,14 @@ class DashboardWindow(ctk.CTk):
 
         self.user_email = user_email
         self.title(f"Neocity — Panel ({role})")
-        self.geometry("1200x800")
+        self.geometry("1200x768")
         self.resizable(True, True)
 
         # Fuentes
-        self.font_title = ctk.CTkFont(family="Consolas", size=32, weight="bold")
-        self.font_header = ctk.CTkFont(family="Consolas", size=24, weight="bold")
-        self.font_normal = ctk.CTkFont(family="Consolas", size=16)
-        self.font_desc = ctk.CTkFont(family="Consolas", size=14)
+        self.font_title = ctk.CTkFont(family="Consolas", size=36, weight="bold")
+        self.font_header = ctk.CTkFont(family="Consolas", size=20, weight="bold")
+        self.font_normal = ctk.CTkFont(family="Consolas", size=15)
+        self.font_desc = ctk.CTkFont(family="Consolas", size=15)
 
         # Estado selección
         self.selected_role = None
@@ -40,16 +41,17 @@ class DashboardWindow(ctk.CTk):
         self.setup_ui(user_email, role)
 
     def setup_ui(self, user_email, role):
+
         # Container principal
         main = ctk.CTkFrame(self, fg_color="transparent")
-        main.pack(fill="both", expand=True, padx=20, pady=20)
+        main.pack(fill="both", expand=True, padx=15, pady=15)
 
         # Header
         header = ctk.CTkLabel(main,
                             text=f"Bienvenido {user_email}",
                             font=self.font_title,
                             text_color="#00ffd8")
-        header.pack(pady=20)
+        header.pack(pady=10)
 
         # Frame para roles
         roles_frame = ctk.CTkFrame(main, fg_color="#081421", corner_radius=15)
@@ -60,7 +62,7 @@ class DashboardWindow(ctk.CTk):
                                   text="SELECCIONA TU ROL EN NEOCITY",
                                   font=self.font_header,
                                   text_color="#bdfef0")
-        select_title.pack(pady=20)
+        select_title.pack(pady=15)
 
         # Frame para las tarjetas de rol
         cards_frame = ctk.CTkFrame(roles_frame, fg_color="transparent")
@@ -69,12 +71,12 @@ class DashboardWindow(ctk.CTk):
 
         # Info panel para mostrar detalles del rol
         self.info_panel = ctk.CTkTextbox(roles_frame,
-                                        height=290,
+                                        height=90,
                                         font=self.font_desc,
                                         fg_color="#061018",
                                         text_color="#8ef5e6",
                                         corner_radius=8)
-        self.info_panel.pack(fill="x", padx=20, pady=20)
+        self.info_panel.pack(fill="x", padx=20, pady=10)
 
         # Crear tarjetas para cada rol
         for i, (rol, info) in enumerate(ROLES_INFO.items()):
@@ -82,7 +84,7 @@ class DashboardWindow(ctk.CTk):
 
         # Botones de acción
         btn_frame = ctk.CTkFrame(roles_frame, fg_color="transparent")
-        btn_frame.pack(fill="x", padx=20, pady=20)
+        btn_frame.pack(fill="x", padx=20, pady=0)
 
         select_btn = ctk.CTkButton(btn_frame,
                                  text="Comenzar con el rol seleccionado",
@@ -99,6 +101,17 @@ class DashboardWindow(ctk.CTk):
                                  fg_color="#ff6961",
                                  hover_color="#ff8a84")
         logout_btn.pack(side="right", padx=10)
+
+        learning_btn = ctk.CTkButton(
+            main,
+            text="📘 Módulo de Aprendizaje",
+            command=lambda: LearningModule(self),
+            font=self.font_normal,
+            fg_color="#005f73",
+            hover_color="#0a9396"
+        )
+        learning_btn.pack(pady=5, anchor="ne")
+
 
     def create_role_card(self, parent, rol, info, col):
         card = ctk.CTkFrame(parent, fg_color="#0a1824", corner_radius=10)
@@ -165,6 +178,8 @@ f"""ROL: {rol}
         messagebox.showinfo("Bienvenido a Neocity", f"Bienvenido a Neocity, {self.user_email}.\nHas iniciado como: {self.selected_role}\nSe abrirá la ventana del juego.")
         # opcional: cerrar dashboard cuando el juego se lanza
         # self.destroy()
+
+        
 
     def on_logout(self):
         self.destroy()

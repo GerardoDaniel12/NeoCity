@@ -378,7 +378,7 @@ def main(argv):
     role = argv[2] if len(argv) > 2 else "Alcalde"
 
     pygame.init()
-    WIDTH, HEIGHT = 1024, 768
+    WIDTH, HEIGHT = 1224, 680
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("Neocity - Quiz")
     clock = pygame.time.Clock()
@@ -408,10 +408,10 @@ def main(argv):
     HOVER_BG = (18, 34, 46)
 
     # Fonts
-    title_font = pygame.font.Font(None, 64)
-    header_font = pygame.font.Font(None, 42)
-    info_font = pygame.font.Font(None, 28)
-    small_font = pygame.font.Font(None, 22)
+    title_font = pygame.font.Font(None, 47)
+    header_font = pygame.font.Font(None, 40)
+    info_font = pygame.font.Font(None, 25)
+    small_font = pygame.font.Font(None, 20)
 
     # Game state
     score = 0
@@ -523,7 +523,7 @@ def main(argv):
 
                 # option number circle
                 circle_center = (orect.x+46, orect.y+48)
-                pygame.draw.circle(screen, NEON if hovered else ACCENT, circle_center, 28)
+                pygame.draw.circle(screen, NEON if hovered else ACCENT, circle_center, 18)
                 num_surf = header_font.render(str(i+1), True, (6, 12, 20))
                 ns = num_surf.get_rect(center=circle_center)
                 screen.blit(num_surf, ns)
@@ -548,7 +548,7 @@ def main(argv):
                         break
 
             # Instructions
-            inst = small_font.render("Presiona 1/2/3 o haz click en una opción. Tras responder verás explicación — ESPACIO para continuar.", True, (180,220,215))
+            inst = small_font.render("", True, (180,220,215))
             screen.blit(inst, (panel_x+24, panel_y+panel_h-40))
 
         else:
